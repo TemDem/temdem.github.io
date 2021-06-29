@@ -45,19 +45,19 @@ testWebP(function (support) {
 
 const isMobile = {
   Android: function () {
-    return navigator.userAgent.match(/Android/i)
+    return navigator.userAgent.match(/Android/i);
   },
   BlackBerry: function () {
-    return navigator.userAgent.match(/BlackBerry/i)
+    return navigator.userAgent.match(/BlackBerry/i);
   },
   iOS: function () {
-    return navigator.userAgent.match(/iPhone|iPad|iPod/i)
+    return navigator.userAgent.match(/iPhone|iPad|iPod/i);
   },
   Opera: function () {
-    return navigator.userAgent.match(/Opera Mini/i)
+    return navigator.userAgent.match(/Opera Mini/i);
   },
   Windows: function () {
-    return navigator.userAgent.match(/IEMobile/i)
+    return navigator.userAgent.match(/IEMobile/i);
   },
   any: function () {
     return (
@@ -66,12 +66,12 @@ const isMobile = {
       isMobile.iOS() ||
       isMobile.Opera() ||
       isMobile.Windows()
-    )
-  }
-}
+    );
+  },
+};
 const tabsContentItemAll = [...document.querySelectorAll(".tabs-content-item")];
 if (isMobile.any()) {
-  document.querySelector("body").classList.add("_touch")
+  document.querySelector("body").classList.add("_touch");
   if (tabsContentItemAll.length > 0) {
     tabsContentItemAll.forEach((el) =>
       el.addEventListener("click", (e) => {
@@ -87,25 +87,25 @@ if (isMobile.any()) {
     );
   }
 } else {
-  document.querySelector("body").classList.add("_pc")
+  document.querySelector("body").classList.add("_pc");
   const iconShare = [...document.querySelectorAll(".tabs-content-item__share")];
   const iconLupa = [...document.querySelectorAll(".tabs-content-item__lupa")];
   const tabIcons = iconShare.concat(iconLupa);
-  tabIcons.forEach(el => {
-    el.addEventListener('mouseover', e => {
-      el.classList.add('_active')
+  tabIcons.forEach((el) => {
+    el.addEventListener("mouseover", (e) => {
+      el.classList.add("_active");
       const parent = el.parentNode;
-      parent.childNodes.forEach(child => {
-        if (!child.data && child.classList.contains('_active')) {
-          const actives = []
+      parent.childNodes.forEach((child) => {
+        if (!child.data && child.classList.contains("_active")) {
+          const actives = [];
           actives.push(child);
-          actives.forEach(iconActive => {
-            iconActive.classList.remove('_active');
-            el.classList.add('_active');
+          actives.forEach((iconActive) => {
+            iconActive.classList.remove("_active");
+            el.classList.add("_active");
           });
         }
       });
-    })
+    });
     // tabIcons.forEach(el => el.addEventListener('mouseout', e => {
     //   if (el.classList.contains('_active')) {
     //     el.classList.remove('_active')
@@ -113,6 +113,7 @@ if (isMobile.any()) {
     // }))
   });
 }
+
 const searchButton = document.querySelector('.icons__search._icon._icon-icon-search');
 const searchForm = document.querySelector(".header-form");
 if (searchButton && searchForm) {
@@ -545,9 +546,9 @@ let sliderPosts = new Swiper(".slider-posts__slider", {
   speed: 800,
   spaceBetween: 30,
   // slideToClickedSlide: true,
-  mousewheel:{
-    sensetivity: 1,
-  },
+  // mousewheel:{
+  //   sensetivity: 1,
+  // },
   nested: true,
   breakpoints: {
     1024: {
